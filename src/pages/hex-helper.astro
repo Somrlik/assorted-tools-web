@@ -1,0 +1,14 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { HexHelper as HexHelperReact } from "../components/react/HexHelper.tsx";
+---
+
+<Layout title="Hex DatatypeHelper">
+    <main>
+        <a href="./">Back to selection</a><br />
+        <hr />
+        <h1>Hex Datatype Helper</h1>
+        <p>Allows you to examine numbers and their hex representation.</p>
+        <HexHelperReact client:load />
+    </main>
+</Layout>

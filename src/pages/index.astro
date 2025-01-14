@@ -1,9 +1,9 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="Assorted Utilities">
 	<main>
 		<svg
 			class="astro-a"
@@ -33,33 +33,45 @@ import Card from '../components/Card.astro';
 				</linearGradient>
 			</defs>
 		</svg>
-		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
+		<h1>Assorted <span class="text-gradient">Utilities</span></h1>
 		<p class="instructions">
-			To get started, open the directory <code>src/pages</code> in your project.<br />
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
+			Select a tool below. No pasted or uploaded data is stored.
 		</p>
 		<ul role="list" class="link-card-grid">
 			<Card
-				href="https://docs.astro.build/"
-				title="Documentation"
-				body="Learn how Astro works and explore the official API docs."
+				href="./paste-analyzer"
+				title="Paste/clipboard Analyzer"
+				body="Helps you know what exactly is in your clipboard."
 			/>
 			<Card
-				href="https://astro.build/integrations/"
-				title="Integrations"
-				body="Supercharge your project with new frameworks and libraries."
+				href="./character-analyzer"
+				title="Character Analyzer"
+				body="Helps you know what UTF-8 character you are dealing with."
+			/>
+			<!-- <Card
+				href="./hex-analyzer"
+				title="Hex Analyzer"
+				body="No sense in a hex of a struct? This might help you unpack it fast."
+			/> -->
+			<Card
+				href="./uuid-utility"
+				title="UUID Utility"
+				body="Might help you with processing and exploring UUIDs."
 			/>
 			<Card
-				href="https://astro.build/themes/"
-				title="Themes"
-				body="Explore a galaxy of community-built starter themes."
-			/>
-			<Card
-				href="https://astro.build/chat/"
-				title="Community"
-				body="Come say hi to our amazing Discord community. ❤️"
+				href="./midi-tester"
+				title="MIDI tester"
+				body="A simple tester for MIDI interfaces"
 			/>
 		</ul>
+		<blockquote>
+			&#8220;First, solve the problem. Then, write the code.&#8221;
+			<footer>
+				<small>
+					<em>&mdash;John Johnson</em>
+				</small>
+			</footer>
+		</blockquote>
 	</main>
 </Layout>
 
@@ -97,22 +109,13 @@ import Card from '../components/Card.astro';
 		background-position: 0%;
 	}
 	.instructions {
-		margin-bottom: 2rem;
 		border: 1px solid rgba(var(--accent-light), 25%);
-		background: linear-gradient(rgba(var(--accent-dark), 66%), rgba(var(--accent-dark), 33%));
+		background: linear-gradient(
+			rgba(var(--accent-dark), 66%),
+			rgba(var(--accent-dark), 33%)
+		);
 		padding: 1.5rem;
 		border-radius: 8px;
-	}
-	.instructions code {
-		font-size: 0.8em;
-		font-weight: bold;
-		background: rgba(var(--accent-light), 12%);
-		color: rgb(var(--accent-light));
-		border-radius: 4px;
-		padding: 0.3em 0.4em;
-	}
-	.instructions strong {
-		color: rgb(var(--accent-light));
 	}
 	.link-card-grid {
 		display: grid;

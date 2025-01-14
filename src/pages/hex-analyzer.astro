@@ -1,0 +1,20 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { HexAnalyzer as HexAnalyzerReact } from "../components/react/HexAnalyzer.tsx";
+---
+
+<script>
+    const worker = new Worker(
+        new URL("../components/worker/hex-analyzer.worker.ts", import.meta.url),
+    );
+    if (!window.assortedToolsWeb) window.assortedToolsWeb = {};
+    window.assortedToolsWeb.hexAnalyzerWorker = worker;
+</script>
+
+<style is:global></style>
+
+<Layout title="Hex Analyzer">
+    <main>
+        <HexAnalyzerReact client:only />
+    </main>
+</Layout>

@@ -1,0 +1,22 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { CharacterAnalyzer as CharacterAnalyzerReact } from '../components/react/CharacterAnalyzer.tsx';
+---
+
+<style is:global>
+    .card-container {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(min-content, 1fr));
+        grid-gap: 1rem
+    }
+</style>
+
+<Layout title="Character Analyzer">
+    <main>
+        <a href="./">Back to selection</a><br>
+        <hr>
+        <h1>Character Analyzer</h1>
+        <p>Allows you to analyze UTF-8/UTF-16 characters. Why? I was dealing with whitespaces that were not whitespaces once.</p>
+        <CharacterAnalyzerReact client:load/>
+    </main>
+</Layout>

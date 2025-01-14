@@ -1,0 +1,17 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { PasteAnalyzer as PasteAnalyzerReact } from "../components/react/PasteAnalyzer.tsx";
+---
+
+<Layout title="Paste Analyzer">
+    <main>
+        <a href="./">Back to selection</a><br />
+        <hr />
+        <h1>Paste Analyzer</h1>
+        <p>
+            Paste anything and the information about the pasted stuff will
+            display.
+        </p>
+        <PasteAnalyzerReact client:load />
+    </main>
+</Layout>

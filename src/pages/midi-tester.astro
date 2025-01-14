@@ -1,0 +1,20 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { MidiTester as MidiTesterReact } from '../components/react/MidiTester.tsx';
+---
+
+<script>
+    const worker = new Worker(new URL('../components/worker/midi-tester.worker.ts', import.meta.url));
+    if (!window.assortedToolsWeb) window.assortedToolsWeb = {};
+    window.assortedToolsWeb.midiTesterWorker = worker;
+</script>
+
+<style is:global>
+
+</style>
+
+<Layout title="Midi Tester">
+    <main>
+        <MidiTesterReact client:load/>
+    </main>
+</Layout>
