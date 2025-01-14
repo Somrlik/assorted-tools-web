@@ -39,27 +39,27 @@ import Card from "../components/Card.astro";
 		</p>
 		<ul role="list" class="link-card-grid">
 			<Card
-				href="/paste-analyzer"
+				href={new URL("paste-analyzer", Astro.url).pathname}
 				title="Paste/clipboard Analyzer"
 				body="Helps you know what exactly is in your clipboard."
 			/>
 			<Card
-				href="/character-analyzer"
+				href={new URL("character-analyzer", Astro.url).pathname}
 				title="Character Analyzer"
 				body="Helps you know what UTF-8 character you are dealing with."
 			/>
 			<!-- <Card
-				href="./hex-analyzer"
+				href={new URL("hex-analyzer", Astro.url).pathname}
 				title="Hex Analyzer"
 				body="No sense in a hex of a struct? This might help you unpack it fast."
 			/> -->
 			<Card
-				href="/uuid-utility"
+				href={new URL("uuid-utility", Astro.url).pathname}
 				title="UUID Utility"
 				body="Might help you with processing and exploring UUIDs."
 			/>
 			<Card
-				href="/midi-tester"
+				href={new URL("midi-tester", Astro.url).pathname}
 				title="MIDI tester"
 				body="A simple tester for MIDI interfaces"
 			/>

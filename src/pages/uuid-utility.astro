@@ -5,7 +5,8 @@ import { UUIDAnalyzer } from "../components/react/UUIDAnalyzer.tsx";
 
 <Layout title="UUID Utility">
     <main>
-        <a href="/">Back to selection</a><br />
+        <a href={new URL("../", Astro.url).pathname}> Back to selection </a>
+        <br />
         <hr />
         <h1>UUID Utility</h1>
         <p>
