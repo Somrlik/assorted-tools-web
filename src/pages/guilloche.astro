@@ -1,0 +1,18 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { GuillocheDashboard } from "../components/react/Guilloche.tsx";
+---
+
+<Layout title="Guilloche Generator">
+    <main>
+        <a href={new URL("../", Astro.url).pathname}> Back to selection </a>
+        <br />
+        <hr />
+        <h1>Guilloche Generator</h1>
+        <p>
+            Father asked me to generate some Guilloche pattern, here's what I
+            came up with.
+        </p>
+        <GuillocheDashboard client:only="react" />
+    </main>
+</Layout>
