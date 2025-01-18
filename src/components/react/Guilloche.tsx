@@ -9,6 +9,7 @@ type Options = {
     samples: number,
     dashed: boolean,
     lineColor: string,
+    lineWidth: number,
 };
 
 type WheelOptions = {
@@ -71,12 +72,13 @@ function makeSvg(options: Options) {
                 break;
             }
             // <line x1="0" y1="80" x2="100" y2="20" stroke="black" />
-            svgContents += `<line x1="${a[0] * hScale}" y1="${a[1] * vScale}" x2="${b[0] * hScale}" y2="${b[1] * vScale}" stroke="${options.lineColor}" />\n`;
+            svgContents += `<line x1="${a[0] * hScale}" y1="${a[1] * vScale}" x2="${b[0] * hScale}" y2="${b[1] * vScale}" stroke="${options.lineColor}" stroke-width="${options.lineWidth}" />\n`;
         }
     } else {
         const style = {
             'fill': 'none',
             'stroke': options.lineColor,
+            'stroke-width': options.lineWidth,
         };
         const styleStr = Object.entries(style).map(([property, value]) => `${property}:${value}`).join(';');
 
@@ -102,6 +104,7 @@ const defaultOptions: Options = {
     shape: 'circle',
     dashed: false,
     lineColor: '#0172ad',
+    lineWidth: 1,
 }
 
 function OptionsControl({onOptionsChange, defaultOptions}: {onOptionsChange: (options: Options) => void, defaultOptions: Options}) {
@@ -109,10 +112,11 @@ function OptionsControl({onOptionsChange, defaultOptions}: {onOptionsChange: (op
     const [wheels, setWheels] = useState(defaultOptions.wheels);
     const [lineColor, setLineColor] = useState(defaultOptions.lineColor);
     const [dashed, setDashed] = useState(defaultOptions.dashed);
+    const [lineWidth, setLineWidth] = useState(defaultOptions.lineWidth);
 
     useEffect(() => {
-        onOptionsChange({samples, wheels, lineColor, shape: 'circle', dashed});
-    }, [samples, wheels, lineColor, dashed]);
+        onOptionsChange({samples, wheels, lineColor, shape: 'circle', dashed, lineWidth});
+    }, [samples, wheels, lineColor, dashed, lineWidth]);
 
     function onWheelChange(idx: number, wheel: WheelOptions) {
         setWheels((prev) => {
@@ -140,8 +144,13 @@ function OptionsControl({onOptionsChange, defaultOptions}: {onOptionsChange: (op
                 <input type="checkbox" checked={dashed} onChange={() => setDashed(!dashed)}/>
                 Dashed?
             </label>
-            <label>Line color (
+            <label>
+                Line color (
                 <span style={{backgroundColor: lineColor, border: '1px solid rebeccapurple', width: '1em', height: '1em', display: 'inline-block'}}></span>)
+            </label>
+            <label>
+                Line width ({lineWidth})
+                <input type="range" min="1" max="10" value={lineWidth} onChange={(ev) => setLineWidth(parseInt(ev.target.value))}/>
             </label>
             <input type="color" value={lineColor} onChange={(ev) => setLineColor(ev.target.value)}/>
         </fieldset>
