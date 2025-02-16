@@ -1,0 +1,23 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { CSDescrambler } from "../components/react/CSDescrambler.tsx";
+---
+
+<Layout title="">
+    <main>
+        <a href={new URL("../", Astro.url).pathname}> Back to selection </a>
+        <br />
+        <hr />
+        <h1>Česká Spořitelna Account Number Descrambler</h1>
+        <p>
+            Someone asked me to descramble internal account numbers from Česká
+            Spořitelna. When you export your account moves in George, you get a
+            standard czech format - ABO. Everyone is sensible and returns the
+            receiving account number in standard czech format, that is except
+            Česká Spořitelna, which uses their own internal account numbers.
+            These are just scambled normal account numbers. Why? Because fuck
+            you.
+        </p>
+        <CSDescrambler client:only="react" />
+    </main>
+</Layout>
